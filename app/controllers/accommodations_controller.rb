@@ -4,5 +4,6 @@ class AccommodationsController < ApplicationController
   end
 
   def show
+    @accommodation = Accommodation.find(params[:id])
   end
 end
