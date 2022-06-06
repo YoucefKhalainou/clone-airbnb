@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_05_143403) do
+ActiveRecord::Schema.define(version: 2022_06_05_174428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accommodations", force: :cascade do |t|
     t.bigint "city_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "owner_id", null: false
     t.integer "available_beds"
     t.integer "price"
     t.text "description"
@@ -25,19 +25,21 @@ ActiveRecord::Schema.define(version: 2022_06_05_143403) do
     t.text "welcome_message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.string "name"
     t.index ["city_id"], name: "index_accommodations_on_city_id"
-    t.index ["user_id"], name: "index_accommodations_on_user_id"
+    t.index ["owner_id"], name: "index_accommodations_on_owner_id"
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "guest_id"
     t.bigint "accommodation_id", null: false
     t.datetime "start_date"
-    t.datetime "end_time"
+    t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["accommodation_id"], name: "index_bookings_on_accommodation_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["guest_id"], name: "index_bookings_on_guest_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -60,7 +62,6 @@ ActiveRecord::Schema.define(version: 2022_06_05_143403) do
   end
 
   add_foreign_key "accommodations", "cities"
-  add_foreign_key "accommodations", "users"
+  add_foreign_key "accommodations", "users", column: "owner_id"
   add_foreign_key "bookings", "accommodations"
-  add_foreign_key "bookings", "users"
 end
