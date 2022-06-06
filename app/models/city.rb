@@ -1,3 +1,3 @@
 class City < ApplicationRecord
-  has_many :accommodations
+  has_many :accommodations, :dependent => :destroy
 end

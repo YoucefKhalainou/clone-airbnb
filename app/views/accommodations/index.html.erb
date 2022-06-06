@@ -1,0 +1,14 @@
+<div class="row g-3">
+<% @accommodations.each_with_index do |accommodation,index| %>
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="card border-0" style="height:310px">
+      <img class="card-img-top rounded" src="<%=accommodation.image%>" alt="Card image">	
+      <div class="card-body">
+        <p class="card-text fw-bold"><%= accommodation.name%>, <%= accommodation.city.name%></p>
+        <p class="card-text fw-bold"><%= accommodation.price%><span class="fw-normal">/nuit</span></p>
+      </div>
+    </div>
+  </div>
+  <br>
+<% end %>
+</div>

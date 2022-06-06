@@ -4,22 +4,22 @@ end
 
 def create_users(number)
   FactoryBot.create_list(:user, number)
-  puts "#{number} users are created"
+  puts "#{User.count} users are created"
 end
 
 def create_cities(number)
   FactoryBot.create_list(:city, number)
-  puts "#{number} cities are created"
+  puts "#{City.count} cities are created"
 end
 
 def create_accommodations(number)
   FactoryBot.create_list(:accommodation, number)
-  puts "#{number} accommodation created"
+  puts "#{Accommodation.count} accommodation created"
 end
 
 def create_bookings(number)
   FactoryBot.create_list(:booking, number)
-  puts "#{number} bookings created"
+  puts "#{Booking.count} bookings created"
 end
 
 def perform
