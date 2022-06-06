@@ -7,10 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+import "bootstrap"
 
 require("bootstrap")
 import "../../assets/stylesheets/application";
@@ -20,3 +17,9 @@ document.addEventListener("turbolinks:load", function() {
         $('[data-toggle="popover"]').popover()
     })
 })
+
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+

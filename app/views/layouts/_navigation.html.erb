@@ -1,0 +1,29 @@
+<nav class='navbar navbar-expand-lg navbar-light bg-light row'>
+  <div class='col-2'>
+    <%= image_tag("logo-airbnb.png", :size => "100x100")%> 
+  </div>
+  <div class='col-5'>
+    <form class="row form-group w-75">
+      <input class="col form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="col-2 btn btn-outline-danger" type="submit">Search</button>
+    </form>
+  </div>
+  <div class='col-5'>
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <%= link_to 'Devenez un hôte'%>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <%= image_tag("languages-devise.png", :size => "25x25")%>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <% if user_signed_in? %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-secondaire" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class:"btn btn-outline-danger me-2" %>
+          <%= link_to "Sign up", new_user_registration_path%>
+        <% end %>     
+      </div>   
+    </div>
+  </div>
+</nav>
